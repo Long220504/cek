@@ -118,8 +118,14 @@ def sayang():
 				month = "-"
 				day = "-"
 			print("Terakhir Diperbarui : Tanggal "+day+"-"+month+"-"+year)
+			try:
+				jr = "https://m.facebook.com/"+bs["id"]
+				print("Link Ke Profil      : "+jr)
+			except (KeyError, IOError):
+				jr = "-"
+				print("Link Ke Profil      : "+jr)
 			cm = open(ink+".json","a")
-			cm.write("ID Facebook         : "+bs["id"]+"\nUser Name           : "+bs["name"]+"\nJumlah Teman        : %s"%(len(id))+"\nDari                : "+fr+"\nTinggal Di          : "+tin+"\nTerakhir Diperbarui : Tanggal "+day+"-"+month+"-"+year+"\n\n")
+			cm.write("ID Facebook         : "+bs["id"]+"\nUser Name           : "+bs["name"]+"\nJumlah Teman        : %s"%(len(id))+"\nDari                : "+fr+"\nTinggal Di          : "+tin+"\nTerakhir Diperbarui : Tanggal "+day+"-"+month+"-"+year+"\nLink Ke Profil      : "+jr+"\n\n")
 			cm.close()
 		print("Selesai, Hasil Disimpan Kedalam File "+ink+".json")
 	except KeyError:
